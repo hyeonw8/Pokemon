@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   description: "pokemon collenctions book",
 };
 
-const PDetail = async ({params}: DetailProps) => {
+const Detail = async ({params}: DetailProps) => {
   const { id } = params;
   const pokemon = await fetchPokemonData(id);
 
@@ -40,4 +40,4 @@ const PDetail = async ({params}: DetailProps) => {
 };
 
 
-export default PDetail;
+export default Detail;
