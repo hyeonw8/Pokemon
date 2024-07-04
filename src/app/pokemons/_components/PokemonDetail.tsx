@@ -1,10 +1,11 @@
-import { Pokemon } from '@/types/Pokemon.type';
-import Link from 'next/link';
-import { Colors, typeColors } from './PokemonMoveColor';
+import Link from "next/link";
+import { typeColors } from "./PokemonMoveColor";
+import Image from "next/image";
+
+import type { Colors, Pokemon } from "@/types/Pokemon.type";
 
 interface PokemonDetailProps {
   pokemon: Pokemon;
-  // onClick: () => void;
 }
 
 const PokemonDetail = ({ pokemon }: PokemonDetailProps) => {
@@ -20,23 +21,23 @@ const PokemonDetail = ({ pokemon }: PokemonDetailProps) => {
   };
 
   return (
-    <div className="p-5 relative">
-      <Link href="/">
-        <img
-          src="/pixel-speech-bubble.png"
-          alt="뒤로가기 이미지"
-          className="w-[90px] absolute left-72"
-        />
-      </Link>
-      <div className="w-5/12 mx-auto bg-white flex flex-col justify-center items-center font-DungGeunMo text-black rounded-xl border">
-        <div className="text-center w-full bg-neutral-200 p-3 rounded-xl">
-          <p className="text-2xl font-medium">{pokemon.korean_name}</p>
-          <p className="text-xl">
-            {`No.${pokemon.id.toString().padStart(4, '0')}`}
-          </p>
-        </div>
-        <div className="flex flex-col justify-center items-center p-5 text-center leading-8">
-          <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+    <div className="p-5 relative flex justify-center">
+      <div className="flex justify-center mr-24">
+        <Link href="/">
+          <img
+            src="/pixel-speech-bubble.png"
+            alt="뒤로가기 이미지"
+            className="w-[90px] mr-5"
+          />
+        </Link>
+        <div className="w-6/12 flex flex-col justify-center items-center font-DungGeunMo text-black rounded-xl bg-gray-50 leading-8 text-center">
+          <div className="text-center w-full bg-purple-300 p-3 rounded-xl ">
+            <p className="text-2xl font-medium">{pokemon.korean_name}</p>
+            <p className="text-xl">
+              {`No.${pokemon.id.toString().padStart(4, "0")}`}
+            </p>
+          </div>
+          <Image src={pokemon.sprites.front_default} alt={pokemon.name} width={150} height={150} />
           <p className="text-lg font-semibold">이름 : {pokemon.korean_name}</p>
           <div className="flex flex-row gap-3 mb-1 text-lg">
             <p>키 : {formatHeightAndWeight(pokemon.height)} m</p>
@@ -49,7 +50,8 @@ const PokemonDetail = ({ pokemon }: PokemonDetailProps) => {
                 <span
                   key={index}
                   className={`${
-                    typeColors[type.type.korean_name as keyof Colors] || 'bg-gray-500'
+                    typeColors[type.type.korean_name as keyof Colors] ||
+                    "bg-gray-500"
                   } ml-2 px-2 rounded text-white`}
                 >
                   {type.type.korean_name}
@@ -61,17 +63,17 @@ const PokemonDetail = ({ pokemon }: PokemonDetailProps) => {
               {pokemon.abilities.map((type, index) => (
                 <span
                   key={index}
-                  className="bg-blue-500 ml-2 px-2 rounded text-white"
+                  className={`${type.is_hidden ? "bg-green-500" : "bg-blue-500"} ml-2 px-2 rounded text-white`}
                 >
                   {type.ability.korean_name}
                 </span>
               ))}
             </div>
           </div>
-          <div className='p-4'>
+          <div className="p-10">
             <p>기술 : </p>
             <span>
-              {pokemon.moves.map((move) => move.move.korean_name).join(' • ')}
+              {pokemon.moves.map((move) => move.move.korean_name).join(" • ")}
             </span>
           </div>
         </div>
