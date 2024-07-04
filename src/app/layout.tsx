@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} bg-blue-400 text-white`}>
-        <header className="flex justify-center items-center font-bold text-3xl font-dalmoori mt-5 mb-10">
+        <header className="flex justify-center items-center font-bold text-3xl font-dalmoori p-5 bg-black">
           ✨ 포켓몬 도감 ✨
         </header>
         {children}
