@@ -5,7 +5,7 @@ export const typeColors: Colors = {
   불꽃: 'bg-red-500',
   물: 'bg-sky-300',
   풀: 'bg-green-400',
-  전기: 'bg-yellow-300',
+  전기: 'bg-yellow-400',
   얼음: 'bg-blue-300',
   격투: 'bg-orange-400',
   독: 'bg-fuchsia-600',
