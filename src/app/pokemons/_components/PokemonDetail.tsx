@@ -21,7 +21,7 @@ const PokemonDetail = ({ pokemon }: PokemonDetailProps) => {
   };
 
   return (
-    <div className="p-5 relative flex justify-center">
+    <div className="p-5 flex justify-center">
       <div className="flex justify-center mr-24">
         <Link href="/">
           <img
@@ -30,7 +30,7 @@ const PokemonDetail = ({ pokemon }: PokemonDetailProps) => {
             className="w-[90px] mr-5"
           />
         </Link>
-        <div className="w-6/12 flex flex-col justify-center items-center font-DungGeunMo text-black rounded-xl bg-gray-50 leading-8 text-center">
+        <div className="w-[700px] flex flex-col justify-center items-center font-DungGeunMo text-black rounded-xl bg-gray-50 leading-8 text-center">
           <div className="text-center w-full bg-purple-300 p-3 rounded-xl ">
             <p className="text-2xl font-medium">{pokemon.korean_name}</p>
             <p className="text-xl">
@@ -38,7 +38,7 @@ const PokemonDetail = ({ pokemon }: PokemonDetailProps) => {
             </p>
           </div>
           <Image src={pokemon.sprites.front_default} alt={pokemon.name} width={150} height={150} />
-          <p className="text-lg font-semibold">이름 : {pokemon.korean_name}</p>
+          <p className="text-lg ">이름 : {pokemon.korean_name}</p>
           <div className="flex flex-row gap-3 mb-1 text-lg">
             <p>키 : {formatHeightAndWeight(pokemon.height)} m</p>
             <p>무게 : {formatHeightAndWeight(pokemon.weight)} kg</p>
@@ -70,7 +70,10 @@ const PokemonDetail = ({ pokemon }: PokemonDetailProps) => {
               ))}
             </div>
           </div>
-          <div className="p-10">
+          <div className="mt-3 text-blue-700 px-10">
+            {pokemon.species.korean_flavor_text}
+          </div>
+          <div className="px-10 py-5">
             <p>기술 : </p>
             <span>
               {pokemon.moves.map((move) => move.move.korean_name).join(" • ")}
