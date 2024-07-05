@@ -8,6 +8,7 @@ export type Pokemon = {
   types: { type: { name: string; korean_name: string } }[];
   abilities: { ability: { name: string; korean_name: string }; is_hidden: boolean; }[];
   moves: { move: { name: string; korean_name: string } }[];
+  species: { name: string; korean_flavor_text: string;}
 }
 
 export type Colors = Record<string, string>;

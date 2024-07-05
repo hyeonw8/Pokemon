@@ -19,6 +19,18 @@ type Moves = {
   }[];
 }
 
+type Text = {
+  flavor_text: string;
+  language: {
+    name: string;
+    url: string;
+  };
+  verstion: {
+    name: string;
+    url: string;
+  }[];
+}
+
 export const GET = async (
   request: Request,
   { params }: { params: { id: string } },
@@ -71,12 +83,25 @@ export const GET = async (
       }),
     );
 
+    
+    const species = response.data.species;
+    const koreanFlavorTextName = 
+      speciesResponse.data.flavor_text_entries.find(
+        (text: Text) => text.language.name === "ko"
+    );
+    const koreanFlavorText = koreanFlavorTextName ? koreanFlavorTextName.flavor_text : "...?";
+    const speciesKoreanNames = {
+      ...species,
+      korean_flavor_text: koreanFlavorText,
+    };
+
     const pokemonData = {
       ...response.data,
       korean_name: koreanName?.name || response.data.name,
       types: typesWithKoreanNames,
       abilities: abilitiesWithKoreanNames,
       moves: movesWithKoreanNames,
+      species: speciesKoreanNames,
     };
 
     return NextResponse.json(pokemonData);
@@ -85,3 +110,4 @@ export const GET = async (
     return NextResponse.json({ error: "Failed to fetch data" });
   }
 };
+
