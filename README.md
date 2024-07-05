@@ -8,6 +8,7 @@
 <img width="1468" alt="스크린샷 2024-07-05 오전 11 45 25" src="https://github.com/hyeonw8/Pokemon/assets/114726736/5f48228e-e168-43b0-ba3e-63572a8e6738">
 
 <br/>
+<br/>
 👇 포켓몬 카드 마우스 호버시 
 <img width="1468" alt="스크린샷 2024-07-05 오전 11 57 40" src="https://github.com/hyeonw8/Pokemon/assets/114726736/10dca18d-3927-4cad-8090-52d831fe48fa">
 
