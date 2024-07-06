@@ -9,7 +9,6 @@ import type { Pokemon } from '@/types/Pokemon.type';
 
 interface PokemonCardProps {
   pokemon: Pokemon;
-  // onClick: () => void;
 }
 
 const PokemonCard = ({ pokemon }: PokemonCardProps) => {
