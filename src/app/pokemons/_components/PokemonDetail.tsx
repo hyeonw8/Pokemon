@@ -2,7 +2,7 @@ import Link from "next/link";
 import { typeColors } from "./PokemonMoveColor";
 import Image from "next/image";
 
-import type { Colors, Pokemon } from "@/types/Pokemon.type";
+import type { Pokemon } from "@/types/Pokemon.type";
 
 interface PokemonDetailProps {
   pokemon: Pokemon;
@@ -50,7 +50,7 @@ const PokemonDetail = ({ pokemon }: PokemonDetailProps) => {
                 <span
                   key={index}
                   className={`${
-                    typeColors[type.type.korean_name as keyof Colors] ||
+                    typeColors[type.type.korean_name] ||
                     "bg-gray-500"
                   } ml-2 px-2 rounded text-white`}
                 >
