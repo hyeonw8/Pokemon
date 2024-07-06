@@ -1,6 +1,6 @@
 import React from "react";
 import PokemonDetail from "@/app/pokemons/_components/PokemonDetail";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { Metadata } from "next";
 
 import type { Pokemon } from "@/types/Pokemon.type";
@@ -14,7 +14,7 @@ interface DetailProps {
 const fetchPokemonData = async (id: string): Promise<Pokemon> => {
   try {
     const response = await axios(`http://localhost:3000/api/pokemons/${id}`);
-    // console.log('디테일 데이터',response.data);
+    
     if (response.status !== 200) {
       throw new Error("Network response was not ok");
     }
@@ -22,7 +22,7 @@ const fetchPokemonData = async (id: string): Promise<Pokemon> => {
     return data;
   } catch (error) {
     console.error("Error fetching data:", error);
-    throw error; // 오류를 다시 던져서 상위 컴포넌트에서 처리하게 함
+    throw error;
   }
 };
 
